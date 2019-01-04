@@ -1,13 +1,15 @@
-# Django Boilerplate Lecture Capture Preferences
+# Lecture Capture Preferences Web Application
 
-**THIS README NEEDS COMPLETING**
+**TODO: THIS README NEEDS COMPLETING**
 
-This repository contains [...] which does [...] in order to [...].
+This repository contains a simple web application allowing lecturers to record
+their preferences for lecture capture.
 
 ## Documentation
 
-The project has [detailed documentation](https://uisautomation.github.io/[...]/) for
-developers, including a "getting started" guide.
+The project has [detailed
+documentation](https://uisautomation.github.io/lecture-capture-preferences-webapp/)
+for developers, including a "getting started" guide.
 
 ## Developer quickstart
 
@@ -70,8 +72,8 @@ For a fuller description of how to debug follow the
 
 ## CircleCI configuration
 
-[ADD DETAILS HERE ON WHAT CONFIGURATION IS REQUIRED FOR CIRCLECI/OTHER CI/CD.]
+TODO: [ADD DETAILS HERE ON WHAT CONFIGURATION IS REQUIRED FOR CIRCLECI/OTHER CI/CD.]
 
 ## Copyright License
 
-See the [LICENSE](LICENSE) file for details.
+See the [LICENSE](LICENSE.md) file for details.
