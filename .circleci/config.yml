@@ -1,0 +1,87 @@
+version: 2
+
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+
+      - run:
+          name: Install codecov
+          command: pip install codecov
+
+      - run:
+          name: Copy circleci specific config
+          command: |
+            echo placeholder
+
+      - run:
+          name: Run tests
+          command: |
+            ./compose.sh tox run -v $PWD:/tmp/workspace -e COVERAGE_FILE=/tmp/workspace/.coverage -e COVERAGE_XML_FILE=/tmp/workspace/coverage.xml -e TOXINI_ARTEFACT_DIR=/tmp/workspace/build --rm tox
+            ./compose.sh tox down
+
+      - store_artifacts:
+          path: ~/project/build/htmlcov
+          destination: coverage-report
+
+      - store_artifacts:
+          path: ~/project/build/doc
+          destination: documentation
+
+      - run:
+          name: run codecov
+          command: |
+            codecov
+
+      - run:
+          name: Health check endpoint succeeds
+          command: |
+            ./compose.sh development up -d
+            ./compose/wait-for-it.sh localhost:8000 -t 60
+            wget http://localhost:8000/healthz
+
+      - run:
+          name: Build the docker image
+          command: docker build --no-cache --tag $CIRCLE_PROJECT_REPONAME:latest --build-arg APP_ENV=docker --build-arg APP_NAME=pidashboard .
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build/doc
+
+  docs:
+    machine: true
+    steps:
+      - run:
+          name: Install dependencies
+          command: |
+            sudo pip install ghp-import
+
+      - add_ssh_keys:
+          fingerprints:
+            - "[FOLLOW README AND INSERT FINGER PRINTS HERE]"
+
+      - checkout
+
+      - attach_workspace:
+          at: .
+
+      - run:
+          name: Update gh-pages branch
+          command: |
+            git config --global user.email "$GH_EMAIL"
+            git config --global user.name "$GH_NAME"
+            ghp-import --no-jekyll --push --force --message "Deploy to GitHub pages [ci skip]" build/doc/
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - docs:
+          requires:
+          - build
+          filters:
+            branches:
+              only: master

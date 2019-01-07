@@ -1,0 +1,10 @@
+# Install the main set of requirements
+-r ./base.txt
+
+# Additional requirements useful for developers of Lecture Capture Preferences
+
+# Django debugging
+django-debug-toolbar
+
+# docker compatible debugger
+pudb
