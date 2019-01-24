@@ -27,6 +27,11 @@ INSTALLED_APPS = [
 
     'automationcommon',
     'ucamwebauth',
+    'crispy_forms',
+    'django_filters',
+    'drf_yasg',
+    'rest_framework',
+    'rest_framework.authtoken',
 
     'preferences',
 ]
@@ -151,6 +156,14 @@ UCAMWEBAUTH_LOGOUT_REDIRECT = 'https://raven.cam.ac.uk/auth/logout.html'
 
 #: Allow members who are not current members to log in?
 UCAMWEBAUTH_NOT_CURRENT = False
+
+# Configure DRF to use Django's session authentication to determine the current user
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 # Allow all origins to access API.
 CORS_URLS_REGEX = r'^/api/.*$'

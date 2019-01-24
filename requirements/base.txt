@@ -8,6 +8,13 @@ psycopg2-binary
 git+https://github.com/uisautomation/django-automationcommon@master#egg=django-automationcommon
 django-ucamwebauth>=1.4.5
 
+# API-related Django packages
+djangorestframework
+django-cors-headers
+drf-yasg
+django-crispy-forms
+django-filter
+
 # For an improved manage.py shell experience
 ipython
 
