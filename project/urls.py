@@ -53,6 +53,9 @@ urlpatterns = [
         namespace='preferences'
     )),
 
+    # lookup/ibis urls
+    path('ucamlookup/', include('ucamlookup.urls')),
+
     # API documentation
     re_path(
         r'^api/swagger(?P<format>\.json|\.yaml)$',
