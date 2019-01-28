@@ -7,9 +7,8 @@ their preferences for lecture capture.
 
 ## Documentation
 
-The project has [detailed
-documentation](https://uisautomation.github.io/lecture-capture-preferences-webapp/)
-for developers, including a "getting started" guide.
+The project has detailed documentation for developers, including a "getting
+started" guide. See below for information on building the documentation.
 
 ## Developer quickstart
 
