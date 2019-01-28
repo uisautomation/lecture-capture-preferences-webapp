@@ -19,6 +19,10 @@ drf-yasg
 django-crispy-forms
 django-filter
 
+# We need at least version 4 of whitenoise to make use of the index_file
+# configuration option.
+whitenoise>=4.0
+
 # For an improved manage.py shell experience
 ipython
 
