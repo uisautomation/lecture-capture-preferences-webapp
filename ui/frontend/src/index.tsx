@@ -9,6 +9,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { ProfileProvider } from './providers/ProfileProvider';
 
 import IndexPage from './pages/IndexPage';
+import UserPreferencePage from './pages/UserPreferencePage';
 
 import theme from './theme';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
         <Helmet><title>Lecture Capture Preferences</title></Helmet>
         <CssBaseline />
         <Route exact={true} path="/" component={IndexPage} />
+        <Route exact={true} path="/preferences/user/:user" component={UserPreferencePage} />
       </MuiThemeProvider>
     </BrowserRouter>
   </ProfileProvider>,

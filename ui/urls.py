@@ -20,4 +20,9 @@ app_name = 'ui'
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="index.html"), name='index'),
+    path(
+        'preferences/user/<slug:username>/',
+        TemplateView.as_view(template_name="index.html"),
+        name='preferences_user'
+    ),
 ]
