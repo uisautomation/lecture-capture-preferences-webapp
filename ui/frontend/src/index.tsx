@@ -6,18 +6,22 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route } from 'react-router-dom'
 
+import { ProfileProvider } from './providers/ProfileProvider';
+
 import IndexPage from './pages/IndexPage';
 
 import theme from './theme';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <MuiThemeProvider theme={theme}>
-      { /* A default title for the page which can be overridden by specific pages. */ }
-      <Helmet><title>Lecture Capture Preferences</title></Helmet>
-      <CssBaseline />
-      <Route exact={true} path="/" component={IndexPage} />
-    </MuiThemeProvider>
-  </BrowserRouter>,
+  <ProfileProvider>
+    <BrowserRouter>
+      <MuiThemeProvider theme={theme}>
+        { /* A default title for the page which can be overridden by specific pages. */ }
+        <Helmet><title>Lecture Capture Preferences</title></Helmet>
+        <CssBaseline />
+        <Route exact={true} path="/" component={IndexPage} />
+      </MuiThemeProvider>
+    </BrowserRouter>
+  </ProfileProvider>,
   document.getElementById('app')
 );
