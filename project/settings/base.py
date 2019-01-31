@@ -28,7 +28,6 @@ INSTALLED_APPS = [
 
     'automationcommon',
     'ucamwebauth',
-    'crispy_forms',
     'django_filters',
     'drf_yasg',
     'rest_framework',
