@@ -48,10 +48,7 @@ urlpatterns = [
     path('', include('ucamwebauth.urls')),
     path('status', automationcommon.views.status, name='status'),
     path('healthz', lambda request: HttpResponse('ok', content_type="text/plain"), name='healthz'),
-    path('', include(
-        'preferences.urls',
-        namespace='preferences'
-    )),
+    path('api/', include('preferences.urls', namespace='preferences')),
 
     # lookup/ibis urls
     path('ucamlookup/', include('ucamlookup.urls')),
@@ -60,6 +57,8 @@ urlpatterns = [
     re_path(
         r'^api/swagger(?P<format>\.json|\.yaml)$',
         schema_view.without_ui(cache_timeout=None), name='schema-json'),
+
+    path('', include('ui.urls', namespace='ui')),
 ]
 
 # Selectively enable django debug toolbar URLs. Only if the toolbar is
