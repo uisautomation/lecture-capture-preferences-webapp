@@ -28,6 +28,9 @@ ENV \
 	DJANGO_SETTINGS_MODULE=project.settings.docker \
 	PORT=8000
 
+# Collect static files. We provide placeholder values for required settings.
+RUN DJANGO_SECRET_KEY=placeholder ./manage.py collectstatic
+
 # Use gunicorn as a web-server after running migration command
 CMD gunicorn \
 	--name preferences \

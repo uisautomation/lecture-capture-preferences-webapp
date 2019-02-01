@@ -8,7 +8,8 @@ machine configured. More information on development is found in the
 Fork the upstream repository
 ````````````````````````````
 
-The repository at https://github.com/uisautomation/preferences is configured to
+The repository at
+https://github.com/uisautomation/lecture-capture-preferences-webapp is configured to
 disallow pushing to master. You'll need to *fork* the repository into your
 personal account and then open pull requests from your personal repository into
 the main repository.
@@ -33,9 +34,9 @@ repository.
 
 .. code-block:: bash
 
-    $ git clone git@github.com:uisautomation/preferences.git
+    $ git clone git@github.com:uisautomation/lecture-capture-preferences-webapp.git
     $ cd preferences
-    $ git remote set-url origin --push git@github.com:$USER/preferences.git
+    $ git remote set-url origin --push git@github.com:$USER/lecture-capture-preferences-webapp.git
 
 .. note::
 
@@ -48,7 +49,7 @@ Sometimes you'll want to ``push`` or ``pull`` from it.
 
 .. code-block:: bash
 
-    $ git remote add $USER git@github.com:$USER/preferences.git
+    $ git remote add $USER git@github.com:$USER/lecture-capture-preferences-webapp.git
 
 .. _docker-devserver:
 

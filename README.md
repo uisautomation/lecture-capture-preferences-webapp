@@ -7,9 +7,8 @@ their preferences for lecture capture.
 
 ## Documentation
 
-The project has [detailed
-documentation](https://uisautomation.github.io/lecture-capture-preferences-webapp/)
-for developers, including a "getting started" guide.
+The project has detailed documentation for developers, including a "getting
+started" guide. See below for information on building the documentation.
 
 ## Developer quickstart
 
@@ -37,6 +36,9 @@ $ ./compose.sh tox run --rm tox
 $ ./compose.sh production build
 $ ./compose.sh production up -d
 $ ./compose.sh production exec production_app ./manage.py migrate
+
+# Build documentation and write a code coverage report to build/
+$ COMPOSE_ARGS="-v $PWD/build/:/tmp/tox-data/artefacts/" ./tox.sh 
 ```
 
 Additionally the ``tox.sh`` and ``manage_development.sh`` wrapper scripts
