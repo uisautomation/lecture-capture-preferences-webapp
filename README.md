@@ -1,5 +1,7 @@
 # Lecture Capture Preferences Web Application
 
+> This repository has moved to https://gitlab.developers.cam.ac.uk/uis/devops/lecture-capture/preferences-webapp
+
 **TODO: THIS README NEEDS COMPLETING**
 
 This repository contains a simple web application allowing lecturers to record
